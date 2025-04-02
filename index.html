@@ -135,9 +135,9 @@
     </div>
 
     <div class="procedura-per-installare">
-        <button onclick="toggleMediaFireInstructions()">Procedura per installare</button>
+        <button onclick="toogleprocedurainstall()">Procedura per installare</button>
     </div>
-    <div id="mediaFireInstructions" class="procedura-per-installare">
+    <div id="installazioneinstruction" class="procedura-per-installare">
         <p>1. Scarica il gioco base (NON POSIZIONARLO SUL DESKTOP O DOWNLOAD, usa una cartella tipo C:\Games\inZOI o se hai un secondo disco X:\Games\inZOI<br>
            2. Scarica l'updater. Una volta avviato seleziona il percorso di inZOI e avvia la patch
            3. Scarica DLC Unlocker. Segui l'istruzione sulla guida. (Nel caso il CMD (Finestra nera) non andasse via, riavvia il pc e rifai partire la crack del dlc unlocker<br></p>
@@ -147,6 +147,14 @@
     <script>
         function toggleMediaFireInstructions() {
             var instructions = document.getElementById('mediaFireInstructions');
+            if (instructions.style.display === 'none' || instructions.style.display === '') {
+                instructions.style.display = 'block';
+            } else {
+                instructions.style.display = 'none';
+            }
+        }
+        function toogleprocedurainstall() {
+            var instructions = document.getElementById('installazioneinstruction');
             if (instructions.style.display === 'none' || instructions.style.display === '') {
                 instructions.style.display = 'block';
             } else {
