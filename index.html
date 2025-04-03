@@ -1,192 +1,49 @@
 <!DOCTYPE html>
 <html lang="it">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>inZOI</title>
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'Arial', sans-serif;
-            background-color: #f4f7fb;
-            color: #333;
-            text-align: center;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        h1 {
-            font-size: 3.5em;
-            margin-top: 50px;
-            font-weight: bold;
-            color: #4CAF50;
-            opacity: 0;
-            animation: slideInFromTop 1s forwards 0.5s;
-        }
-
-        p {
-            font-size: 1.3em;
-            margin: 20px 0;
-            line-height: 1.6;
-            color: #555;
-            opacity: 0;
-            animation: fadeInText 1.5s forwards 1s;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .buttons {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            margin-top: 40px;
-            opacity: 0;
-            animation: fadeInButtons 1s forwards 1.5s;
-        }
-
-        button {
-            background-color: #4CAF50;
-            color: white;
-            font-size: 1.2em;
-            padding: 15px 30px;
-            border: none;
-            border-radius: 30px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            text-transform: uppercase;
-        }
-
-        button:hover {
-            background-color: #45a049;
-            transform: translateY(-5px);
-            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
-        }
-
-        button:active {
-            transform: translateY(2px);
-        }
-
-        footer {
-            margin-top: 50px;
-            font-size: 1em;
-            color: #aaa;
-        }
-
-        .download-instructions {
-            display: none;
-            margin-top: 20px;
-            font-size: 1.2em;
-            color: #555;
-            max-width: 600px;
-            margin-left: auto;
-            margin-right: auto;
-            text-align: left;
-        }
-
-        .mediafire-button-container {
-            margin-top: 50px;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideInFromTop {
-            0% { opacity: 0; transform: translateY(-30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInText {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInButtons {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-         .procedura-per-installare {
-            margin-top: 50px;
-        }
-
-        @keyframes fadeIn {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes slideInFromTop {
-            0% { opacity: 0; transform: translateY(-30px); }
-            100% { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeInText {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-
-        @keyframes fadeInButtons {
-            0% { opacity: 0; }
-            100% { opacity: 1; }
-        }
-        
-        #installazioneinstruction {
-         display: none;
-         }
-    </style>
+    <title>inZOI - Download e Installazione</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
-    <h1>inZOI</h1>
-    <p>InZOI è un gioco di simulazione di vita sviluppato da inZOI Studio e pubblicato da Krafton. Il gioco è stato rilasciato in accesso anticipato per Windows il 28 marzo 2025.</p>
-    
-    <div class="buttons">
+    <header>
+        <h1>inZOI</h1>
+        <p>inZOI è un gioco di simulazione di vita sviluppato da inZOI Studio e pubblicato da Krafton. Il gioco è stato
+            rilasciato in accesso anticipato per Windows il 28 marzo 2025.</p>
+    </header>
+
+    <section class="download-buttons">
         <button onclick="window.location.href='https://www.mediafire.com/file/vtc3iw4khn604jj/inZOI.torrent/file'">Download Gioco base</button>
         <button onclick="window.location.href='https://www.mediafire.com/file/zeua7cxurd4goc5/inZOI.v17914301_%2528UPDATE%2529.zip/file'">Download Updater</button>
-        <button onclick="window.location.href='https://www.mediafire.com/file/6nt49va5tqdxa52/inZOI.DLC.unlocker.v0.1.0.zip/file'">Download DLC Unlocker (canvas)</button>
-    </div>
-    <div class="mediafire-button-container">
+        <button onclick="window.location.href='https://www.mediafire.com/file/6nt49va5tqdxa52/inZOI.DLC.unlocker.v0.1.0.zip/file'">Download DLC Unlocker</button>
+    </section>
+
+    <section class="info-buttons">
         <button onclick="toggleMediaFireInstructions()">Come scaricare da MediaFire</button>
-    </div>
-    <!-- Istruzioni MediaFire che vengono visualizzate quando il pulsante è premuto -->
-    <div id="mediaFireInstructions" class="download-instructions">
-        <p>1. Attendi i 4 secondi richiesti.<br>
-           2. Una volta finito ti si abiliterà "Download",cliccaci e inizierà il download.<br></p>
-    </div>
+        <button onclick="toggleProceduraInstall()">Procedura per installare</button>
+    </section>
 
-    <div class="procedura-per-installare">
-        <button onclick="toogleprocedurainstall()">Procedura per installare</button>
-    </div>
-    <div id="installazioneinstruction" class="procedura-per-installare">
-        <p>1. Scarica il gioco base (NON POSIZIONARLO SUL DESKTOP O DOWNLOAD, usa una cartella tipo C:\Games\inZOI o se hai un secondo disco X:\Games\inZOI<br>
-           2. Scarica l'updater. Una volta avviato seleziona il percorso di inZOI e avvia la patch
-           3. Scarica DLC Unlocker. Segui l'istruzione sulla guida. (Nel caso il CMD (Finestra nera) non andasse via, riavvia il pc e rifai partire la crack del dlc unlocker<br></p>
-    </div>
+    <section id="mediaFireInstructions" class="download-instructions">
+        <p>1. Attendi i 4 secondi richiesti.<br>2. Una volta finito, clicca su "Download" e inizia il download.</p>
+    </section>
 
+    <section id="installazioneinstruction" class="procedura-installazione">
+        <p>1. Scarica il gioco base (NON POSIZIONARLO SUL DESKTOP O DOWNLOAD, usa una cartella tipo C:\Games\inZOI o se hai un secondo disco X:\Games\inZOI).<br>
+            2. Scarica l'updater. Una volta avviato, seleziona il percorso di inZOI e avvia la patch.<br>
+            3. Scarica il DLC Unlocker. Segui le istruzioni sulla guida. (Nel caso la finestra del CMD non vada via, riavvia il PC e rifai partire la crack del DLC unlocker).</p>
+    </section>
 
-    <script>
-        function toggleMediaFireInstructions() {
-            var instructions = document.getElementById('mediaFireInstructions');
-            if (instructions.style.display === 'none' || instructions.style.display === '') {
-                instructions.style.display = 'block';
-            } else {
-                instructions.style.display = 'none';
-            }
-        }
-        function toogleprocedurainstall() {
-            var instructions = document.getElementById('installazioneinstruction');
-            if (instructions.style.display === 'none' || instructions.style.display === '') {
-                instructions.style.display = 'block';
-            } else {
-                instructions.style.display = 'none';
-            }
-        }
-    </script>
+    <footer>
+        <p>&copy; 2025 inZOI Studio. Tutti i diritti riservati.</p>
+        <p>Il file .torrent è fornito da <a href="https://www.games4u.org" target="_blank">games4u.org</a></p>
+    </footer>
+
+    <script src="scripts.js"></script>
+
 </body>
+
 </html>
